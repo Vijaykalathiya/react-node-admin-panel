@@ -95,7 +95,7 @@ const navList = [
 const Sidebar = ({ drawerWidth, isNonMobile, isSidebarOpen, setIsSidebarOpen, user }) => {
     const { pathname } = useLocation();
     const [active, setActive] = useState("");
-    const navigate = useNavigate;
+    const navigate = useNavigate();
     const theme = useTheme();
 
     useEffect(() => {
