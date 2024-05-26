@@ -9,6 +9,8 @@ import Layout from "scenes/layout";
 import { themeSettings } from "theme";
 import Geography from "scenes/geography";
 import Overview from "scenes/overallStat";
+import Daily from "scenes/daily";
+import Monthly from "scenes/monthly";
 
 const Customers = React.lazy(() => import("scenes/customers"));
 const Products = React.lazy(() => import("scenes/products"));
@@ -30,9 +32,11 @@ function App() {
               <Route path="/products" element={<Products />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/transactions" element={<Transactions />} />
-              <Route path="/Geography" element={<Geography />} />
+              <Route path="/geography" element={<Geography />} />
 
-              <Route path="/Overview" element={<Overview />} />
+              <Route path="/overview" element={<Overview />} />
+              <Route path="/daily" element={<Daily />} />
+              <Route path="/monthly" element={<Monthly />} />
             </Route>
           </Routes>
         </ThemeProvider>

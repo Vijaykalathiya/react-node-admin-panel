@@ -8,7 +8,6 @@ const Overview = () => {
   const { data, isLoading } = useGetOverallStatQuery();
   const [view, setView] = useState("units")
   const theme = useTheme;
-  console.log(data);
   return <Box m="1.5rem 2.5rem">
     <Header title="Overview" subTitle="Overview stat of the business in terms of revenue and profit." />
     <Box
