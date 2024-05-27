@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import generalRoutes from './routes/general.js';
 import clientRoute from './routes/client.js';
 import SalesRoute from './routes/sales.js'
+import ManagementRoute from './routes/management.js';
 
 // managing the data
 import User from './models/User.js';
@@ -15,7 +16,8 @@ import Product from './models/Product.js';
 import ProductStat from './models/ProductStat.js'
 import Transaction from './models/Transaction.js';
 import OverallStat from './models/OverallStat.js';
-import { dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat } from './data/index.js';
+import { dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat, dataAffiliateStat } from './data/index.js';
+import AffiliateStat from './models/AffiliateStat.js';
 
 // start configuration
 dotenv.config();
@@ -29,7 +31,7 @@ app.use(express.static('public'));
 // // main routes
 app.use("/client", clientRoute); // client including Products, Customer, Transaction and Geography routes
 app.use("/general", generalRoutes); // dashboard and user routes
-// app.use("/management", ManagementRoute); // admin and performance routes
+app.use("/management", ManagementRoute); // admin and performance routes
 app.use("/sales", SalesRoute);
 
 // connect to MongoDB database
@@ -46,6 +48,7 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
         // ProductStat.insertMany(dataProductStat);
         // Transaction.insertMany(dataTransaction);
         // OverallStat.insertMany(dataOverallStat);
+        // AffiliateStat.insertMany(dataAffiliateStat);
     }).catch((err) => {
         console.error("Error connecting to MongoDB: ", err);
 });
